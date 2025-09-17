@@ -1,0 +1,69 @@
+{
+  "name": "CUIDO_Back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit",
+    "test:watch": "cross-env NODE_ENV=test jest --watch --detectOpenHandles",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage --detectOpenHandles --forceExit",
+    "lint": "eslint src/ --ext .js",
+    "lint:fix": "eslint src/ --ext .js --fix",
+    "seed": "node scripts/seed.js",
+    "build": "echo 'No build step required for Node.js'",
+    "docker:build": "docker build -t claude-prompt-backend .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env claude-prompt-backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanMartinezL/CUIDO_Back.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "claude-ai",
+    "anthropic",
+    "prompt-engineering",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuanMartinezL/CUIDO_Back/issues"
+  },
+  "homepage": "https://github.com/JuanMartinezL/CUIDO_Back#readme",
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.61.0",
+    "bcryptjs": "^3.0.2",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.0",
+    "morgan": "^1.10.1",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.1.1",
+    "cross-env": "^10.0.0",
+    "eslint": "^9.1.1",
+    "jest": "^30.1.3",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
+
