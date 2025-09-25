@@ -127,16 +127,16 @@ const seedData = async () => {
     const createdTemplates = await PromptTemplate.insertMany(templates);
     logger.info(`${createdTemplates.length} plantillas creadas exitosamente`);
 
-    console.log('\n🌱 SEEDING COMPLETADO EXITOSAMENTE');
+    console.log('\n SEEDING COMPLETADO EXITOSAMENTE');
     console.log('==========================================');
-    console.log(`✅ Plantillas creadas: ${createdTemplates.length}`);
+    console.log(` Plantillas creadas: ${createdTemplates.length}`);
     console.log('==========================================\n');
 
     process.exit(0);
 
   } catch (error) {
-    logger.error('❌ Error durante seeding:', error);
-    console.error('❌ Error durante seeding:', error.message);
+    logger.error(' Error durante seeding:', error);
+    console.error(' Error durante seeding:', error.message);
     process.exit(1);
   }
 };

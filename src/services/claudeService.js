@@ -35,12 +35,12 @@ class ClaudeService {
       this.model = process.env.CLAUDE_MODEL || 'claude-3-5-sonnet-20241022';
       this.initialized = true;
 
-      logger.info('✅ Claude Service inicializado exitosamente', {
+      logger.info(' Claude Service inicializado exitosamente', {
         model: this.model,
         apiKeyConfigured: true
       });
     } catch (error) {
-      logger.error('❌ Error al inicializar Claude Service:', error.message);
+      logger.error(' Error al inicializar Claude Service:', error.message);
       throw error;
     }
   }
@@ -165,10 +165,10 @@ class ClaudeService {
         }]
       });
 
-      logger.info('✅ Conexión con Claude API validada exitosamente');
+      logger.info(' Conexión con Claude API validada exitosamente');
       return true;
     } catch (error) {
-      logger.error('❌ Falló la validación de conexión con Claude', {
+      logger.error(' Falló la validación de conexión con Claude', {
         error: error.message,
         status: error.status,
         stack: error.stack
@@ -206,7 +206,7 @@ class ClaudeService {
       return { valid: false, issues };
     }
 
-    logger.info('✅ Configuración de Claude validada');
+    logger.info(' Configuración de Claude validada');
     return { valid: true, issues: [] };
   }
 }

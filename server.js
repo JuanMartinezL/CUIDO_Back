@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Debug temporal para verificar que las variables se cargan
-console.log("🔧 Variables de entorno cargadas:");
+console.log(" Variables de entorno cargadas:");
 console.log("ANTHROPIC_API_KEY configurada:", !!process.env.ANTHROPIC_API_KEY);
 console.log("ANTHROPIC_API_KEY longitud:", process.env.ANTHROPIC_API_KEY?.length || 0);
 console.log("CLAUDE_MODEL:", process.env.CLAUDE_MODEL || 'no configurado');
@@ -36,17 +36,17 @@ async function startServer() {
       logger.warn('⚠️ Problemas de configuración de Claude detectados:', configValidation.issues);
       // Continuar pero advertir
     } else {
-      logger.info('✅ Configuración de Claude validada');
+      logger.info(' Configuración de Claude validada');
     }
 
     // Conectar a MongoDB
     await connectDB();
-    logger.info('✅ Conectado exitosamente a la base de datos');
+    logger.info(' Conectado exitosamente a la base de datos');
 
     // Validar conexión con Claude API (AQUÍ se inicializa Claude)
     const claudeConnected = await claudeService.validateConnection();
     if (claudeConnected) {
-      logger.info('✅ Conexión con Claude API validada exitosamente ');
+      logger.info(' Conexión con Claude API validada exitosamente ');
     } else {
       logger.warn('No se pudo validar conexión con Claude API');
       logger.warn('Verifica tu ANTHROPIC_API_KEY y conexión a internet');
@@ -54,11 +54,11 @@ async function startServer() {
 
     // Iniciar servidor
     const server = app.listen(PORT, () => {
-      logger.info(`🚀 Servidor corriendo en puerto ${PORT} (${NODE_ENV})`);
-      logger.info(`📡 Health check disponible en http://localhost:${PORT}/health`);
+      logger.info(` Servidor corriendo en puerto ${PORT} (${NODE_ENV})`);
+      logger.info(` Health check disponible en http://localhost:${PORT}/health`);
       
       // Log de configuración (sin exponer datos sensibles)
-      logger.info('🔧 Configuración del servidor:', {
+      logger.info(' Configuración del servidor:', {
         port: PORT,
         environment: NODE_ENV,
         mongoConnected: true,
@@ -69,9 +69,9 @@ async function startServer() {
 
     // Manejo graceful de cierre
     const gracefulShutdown = (signal) => {
-      logger.info(`🔄 ${signal} recibido. Cerrando servidor gracefully...`);
+      logger.info(` ${signal} recibido. Cerrando servidor gracefully...`);
       server.close(() => {
-        logger.info('✅ Servidor cerrado exitosamente');
+        logger.info(' Servidor cerrado exitosamente');
         process.exit(0);
       });
     };

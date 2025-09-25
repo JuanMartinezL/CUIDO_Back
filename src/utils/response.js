@@ -1,4 +1,4 @@
-// 🛠️ Custom error class
+//  Custom error class
 export class AppError extends Error {
   constructor(message, statusCode) {
     super(message);
@@ -39,7 +39,7 @@ export const sendError = (res, message, statusCode = 500, error = null) => {
   return res.status(statusCode).json(response);
 };
 
-// ✅ Validation error formatter (defensive version)
+//  Validation error formatter (defensive version)
 export const formatValidationErrors = (errors) => {
   if (!Array.isArray(errors)) {
     return [{
